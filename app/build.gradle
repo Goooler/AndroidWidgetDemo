@@ -14,10 +14,21 @@ android {
     versionCode 1
     versionName "1.0"
   }
-
+  signingConfigs {
+    sign {
+      keyAlias("key0")
+      keyPassword("demo.app")
+      storeFile file("../gradle/demo.jks")
+      storePassword("demo.app")
+    }
+  }
   buildTypes {
     release {
+      signingConfig signingConfigs.sign
       minifyEnabled false
+    }
+    debug {
+      signingConfig signingConfigs.sign
     }
   }
   compileOptions {
