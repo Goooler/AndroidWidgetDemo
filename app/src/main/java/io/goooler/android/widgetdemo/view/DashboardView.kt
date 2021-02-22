@@ -14,6 +14,7 @@ class DashboardView(context: Context, attrs: AttributeSet? = null) : View(contex
 
   override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
     path.addCircle(w / 2f, h / 2f, RADIUS, Path.Direction.CW)
+    path.addRect(w / 2f - RADIUS, h / 2f, w / 2f + RADIUS, h / 2f + RADIUS, Path.Direction.CW)
   }
 
   override fun onDraw(canvas: Canvas) {
