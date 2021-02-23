@@ -20,6 +20,12 @@ class PathView(context: Context, attrs: AttributeSet? = null) : View(context, at
   override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
     path.lineTo(200f, 200f)
     path.lineTo(200f, 0f)
+    path.moveTo(100f, 0f)
+    path.lineTo(0f, 0f)
+    path.lineTo(0f, -200f)
+    path.setLastPoint(-200f, -200f)
+    path.lineTo(0f, -200f)
+    path.close()
   }
 
   override fun onDraw(canvas: Canvas) {
