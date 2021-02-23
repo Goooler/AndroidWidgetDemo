@@ -34,6 +34,11 @@ android {
       signingConfig signingConfigs.sign
     }
   }
+  applicationVariants.all { variant ->
+    variant.outputs.all {
+      outputFileName = "../../../app_${variant.buildType.name}.apk"
+    }
+  }
   compileOptions {
     sourceCompatibility JavaVersion.VERSION_1_8
     targetCompatibility JavaVersion.VERSION_1_8
