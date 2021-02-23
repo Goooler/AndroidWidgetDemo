@@ -9,10 +9,15 @@ import android.graphics.drawable.PictureDrawable
 import android.util.AttributeSet
 import android.view.View
 
-class PictureView(context: Context, attrs: AttributeSet? = null) : View(context, attrs) {
+class PictureAndTextView(context: Context, attrs: AttributeSet? = null) : View(context, attrs) {
 
   private val picture = Picture()
   private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
+  private val text = "这是一段自定义的文本，用来测试"
+
+  init {
+    paint.textSize = 70f
+  }
 
   override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
     val canvas = picture.beginRecording(w, h)
@@ -30,5 +35,8 @@ class PictureView(context: Context, attrs: AttributeSet? = null) : View(context,
       it.setBounds(0, 0, width / 2, height / 2)
       it.draw(canvas)
     }
+    canvas.translate(0f, 200f)
+    canvas.drawText(text, 100f, 100f, paint)
+    canvas.drawText(text, 0, 5, 100f, 200f, paint)
   }
 }
