@@ -11,5 +11,6 @@ class MainApplication : Application() {
 
   companion object {
     lateinit var app: Application
+      private set
   }
 }
